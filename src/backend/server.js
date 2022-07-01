@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 import express from 'express'
-import {addUser} from './database.js'
+import {addUser, updateUser} from './database.js'
 
 const app = express();
 
@@ -22,6 +22,18 @@ app.post('/usuario/adicionar', async (req, res, next) => {
     res.sendStatus(200);
 });
 
+app.put('usuario/atualizar', async (req, res, next) => {
+    
+    // let novoEmail = ''
+    // if (!!req.body.update && req.body.update.email) {
+    //     novoEmail = req.body.update.email;
+    // }
+    
+   
+
+    console.log(email)
+    res.sendStatus(200)
+})
 
 
 app.listen(3001, () => {
@@ -29,22 +41,4 @@ app.listen(3001, () => {
 });
 
 
-    // const uri = "mongodb+srv://admin:1234@cluster0.dmldl.mongodb.net/mydb?retryWrites=true&w=majority";
-
-    // const client = new MongoClient(uri);
-    // await client.connect();
-
-
-    // try {
-    //     await client.db().collection('usuario').insertOne(user);
-    //     console.log('Customer was added to the database!');
-        
-    // } catch (err) {
-    //     console.log(`Unable to add customer to the database. Err: ${err}`);
-    // } finally {
-    //     await client.close();
-        
-    // }
-    // async function addUser(user){
-        
-    // }
+   
