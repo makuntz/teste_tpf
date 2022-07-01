@@ -8,30 +8,27 @@ app.use(express.json());
 
 
 app.get('/', (req, res, next) => {
-    console.log('Hellowww');
 
     res.sendStatus(200);
 });
+
 
 app.post('/usuario/adicionar', async (req, res, next) => {
     const user = req.body
 
     await addUser(user)
 
-    console.log('Holla muchacho');
     res.sendStatus(200);
 });
 
-app.put('usuario/atualizar', async (req, res, next) => {
-    
-    // let novoEmail = ''
-    // if (!!req.body.update && req.body.update.email) {
-    //     novoEmail = req.body.update.email;
-    // }
-    
-   
 
-    console.log(email)
+app.put('/usuario/atualizar', async (req, res, next) => {
+    
+    let novoEmail = ''
+    
+    const email = req.body.email
+    updateUser(email, novoEmail)   
+
     res.sendStatus(200)
 })
 

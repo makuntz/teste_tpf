@@ -27,47 +27,22 @@ export async function updateUser(email, novoEmail) {
     const client = new MongoClient(uri);
     await client.connect();
 
-    const usuario = await findUser(email);
+    const usuario = await client.db().collection('usuario').findOne({email: email})
     if (!usuario) {
         console.error(`Email ${email} ainda nao registrado.`);
         return false;
     }
     try{
         await client.db().collection('usuario').updateOne(
-            { $set: novoEmail }
+            {"email": email},
+            {$set: {"email": novoEmail}}
         )
         
     } catch (err) {
         console.log(`Nao é possível atualizar usuário. Err: ${err}`);
+    } finally {
+        await client.close();
+        
     }
     
-
-    // const usuario = await findUser(email);
-    // if (!usuario) {
-    //     console.error(`Email ${email} ainda nao registrado.`);
-    //     return false;
-    // }
-
-    // let updated = false;
-    // try {
-        // const novoUsuario = {
-        //     name: novoNome ? novoNome : usuario.name,
-        //     email: novoEmail ? novoEmail : usuario.email
-        // }
-        
-
-    //     await client.db().collection('usuario').updateOne(
-    //         { _id: usuario._id },
-    //         { $set: novoUsuario },
-    //         { upsert: false }
-    //     );
-    //     console.log('Usuario foi atualizado!');
-        // updated = true;
-    // } catch (err) {
-    //     console.log(`Nao foi possível atualizar usuário. Err: ${err}`);
-    // } finally {
-    //     await client.close();
-    //     return updated;
-    // }
-//     }
 }
