@@ -1,6 +1,4 @@
 import { MongoClient } from 'mongodb';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
-
 
 const uri = "mongodb+srv://admin:1234@cluster0.dmldl.mongodb.net/mydb?retryWrites=true&w=majority";
 
@@ -8,6 +6,7 @@ const uri = "mongodb+srv://admin:1234@cluster0.dmldl.mongodb.net/mydb?retryWrite
 export async function addUser(user){
     const client = new MongoClient(uri);
     await client.connect();
+
 
     try {
         await client.db().collection('usuario').insertOne(user);
@@ -23,7 +22,7 @@ export async function addUser(user){
 
 
 //Update
-export async function updateUser(email, novoEmail) {
+export async function updateUser(email, novoEmail, nome, novoNome, curso, novoCurso) {
     const client = new MongoClient(uri);
     await client.connect();
 
@@ -34,8 +33,17 @@ export async function updateUser(email, novoEmail) {
     }
     try{
         await client.db().collection('usuario').updateOne(
-            {"email": email},
-            {$set: {"email": novoEmail}}
+            {
+                "nome": nome,
+                "email": email,
+                "curso": curso
+            },
+            {$set: {
+                "nome": novoNome,
+                "email": novoEmail,
+                "curso": novoCurso
+                }
+            }
         )
         
     } catch (err) {
@@ -46,3 +54,5 @@ export async function updateUser(email, novoEmail) {
     }
     
 }
+
+
