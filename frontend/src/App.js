@@ -1,5 +1,4 @@
-import Routes from './frontend/Routes';
-import './App.css';
+import Routes from './Routes';
 
 
 
