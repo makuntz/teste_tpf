@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
 import express from 'express'
-import {addUser, updateUser} from './database.js'
+import {addUser, listUser, updateUser} from './database.js'
 const uri = "mongodb+srv://admin:1234@cluster0.dmldl.mongodb.net/mydb?retryWrites=true&w=majority";
 
 
@@ -14,6 +14,26 @@ app.get('/', (req, res, next) => {
     res.sendStatus(200);
 });
 
+//testar
+app.post('/login', async (req, res, next) => {
+    const client = new MongoClient(uri);
+    await client.connect();
+    const {login, senha} = req.body //names dos inputs
+    const admin = await client.db().collection('usuario').findOne({email: email})
+
+    if(admin === null){
+        console.log('nao logado')
+    } else{
+        if(login && senha == admin){
+            req.session.admin = email
+            res.sendStatus(200)
+            console.log(req.session)
+        }
+    }
+
+})
+
+
 
 app.post('/usuario/adicionar', async (req, res, next) => {
     const client = new MongoClient(uri);
@@ -26,46 +46,50 @@ app.post('/usuario/adicionar', async (req, res, next) => {
         return true;
     }
 
-    const user = req.body
-    await addUser(user)
+    const {userNome, userEmail, userCurso} = req.body //name dos inputs
 
+    const user = {
+        nome: userNome,
+        email: userEmail,
+        curso: userCurso
+    }
+
+    await addUser(user)
     res.sendStatus(200);
 });
 
-app.get('/usuario/listar', async (req, res, next) => {
+app.get('/usuario/listar/:email', async (req, res, next) => {
     const client = new MongoClient(uri);
     await client.connect();
 
-    const email = 'mk1@gmail.com' //email que admin vai digitar no input
+    const email = req.params.email //email que admin vai digitar no input
 
-
-    try{
-        const lista = await client.db().collection('usuario').findOne({email: email})
-        console.log(lista.curso)
-        res.send(lista.nome) //ver como lista mais de um atributo
-        
-    } catch (err) {
-        console.log(`Nao foi possível realizar a busca. Err: ${err}`);
-    } finally {
-        await client.close();
-        
-    }
+    await listUser(email)
     
 })
 
 
 //nao esquecer de trocar para put no postman
 app.put('/usuario/atualizar', async (req, res, next) => {
-    let novoEmail = '' //valor do input
-    let novoNome = '' //valor do input
-    let novoCurso ='' //valor do input
-    const email = req.body.email //apenas teste no postman - puxar do banco - find?
-    const nome = req.body.nome  //apenas teste no postman - puxar do banco
-    const curso = req.body.curso //apenas teste no postman - puxar do banco
+    const client = new MongoClient(uri);
+    await client.connect();
 
-    updateUser(email, novoEmail, nome, novoNome, curso, novoCurso)  
+    let novoNome = 'leandro1234' //valor do input
+    let novoEmail = 'mk1234@gmail.com' //valor do input
+    let novoCurso ='coach' //valor do input
+    
+    const emailBody = req.body.email //valor do input do filtro
+    const userFound = await client.db().collection('usuario').findOne({email: emailBody})
+
+    const nome = userFound.nome
+    const email = userFound.email
+    const curso = userFound.curso
+
+    updateUser(nome, novoNome, email, novoEmail, curso, novoCurso)  
+    console.log('foi')
     res.sendStatus(200)
 })
+
 
 
 app.listen(3001, () => {

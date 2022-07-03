@@ -22,7 +22,7 @@ export async function addUser(user){
 
 
 //Update
-export async function updateUser(email, novoEmail, nome, novoNome, curso, novoCurso) {
+export async function updateUser(nome, novoNome, email, novoEmail, curso, novoCurso) {
     const client = new MongoClient(uri);
     await client.connect();
 
@@ -31,6 +31,11 @@ export async function updateUser(email, novoEmail, nome, novoNome, curso, novoCu
         console.error(`Email ${email} ainda nao registrado.`);
         return false;
     }
+
+    nome = usuario.nome
+    email = usuario.email
+    curso = usuario.curso
+    
     try{
         await client.db().collection('usuario').updateOne(
             {
@@ -55,4 +60,27 @@ export async function updateUser(email, novoEmail, nome, novoNome, curso, novoCu
     
 }
 
+
+export async function listUser(email){
+    const client = new MongoClient(uri);
+    await client.connect();
+
+   const usuario = await client.db().collection('usuario').findOne({email: email})
+    if (!usuario) {
+        console.error(`Email ${email} ainda nao registrado.`);
+        return false;
+    }
+
+    let userFound
+    try{
+        userFound = await client.db().collection('usuario').findOne({email: email})
+        console.log(userFound)
+        
+    } catch (err) {
+        console.log(`Nao é possível encontrar usuário. Err: ${err}`);
+    } finally {
+        await client.close();
+        
+    }
+}
 
