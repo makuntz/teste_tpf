@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 app.get('/', (req, res, next) => {
-
+    res.send('funcionouuuuu')
     res.sendStatus(200);
 });
 

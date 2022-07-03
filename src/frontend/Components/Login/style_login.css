@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+}
+
+.containerLogin{
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/src/admin2.png");
+    background-size: cover;
+    background-position: center; 
+}
+
+.transparente{
+    /* border: 3px solid black; */
+    box-shadow: 5rem;
+    width: 30rem;
+    height: 30rem;
+     /* border-radius: 3rem; */
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.5px);
+    -webkit-backdrop-filter: blur(11.5px);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.5px);
+    -webkit-backdrop-filter: blur(11.5px);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.emailLogin{
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    border-radius: 0.8rem;
+    background-color: rgb(238, 232, 232);
+
+}
+
+.senhaLogin{
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    border-radius: 0.8rem;
+    background-color: rgb(238, 232, 232);
+}
+
+.logar{
+    width: 5rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.formLogin p{
+    margin-top: 5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}

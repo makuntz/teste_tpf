@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.header{
+    width: 100%;
+    height: 5rem;
+    background-color: #646464;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonHeader{
+    width: 200px;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+button:hover{
+    background-color: #cecdcd;
+    color: white;
+
+}
