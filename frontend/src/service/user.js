@@ -13,3 +13,12 @@ export async function addUser (data) {
         console.log(err)
     }
 }
+
+export async function getUsers() {
+    try {
+        const { data: listUsers } = await httpservice.get(apiurl + '/listuser')
+        
+        console.log(listUsers)
+        return listUsers
+    } catch (error) {}
+  }

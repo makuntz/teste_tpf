@@ -2,7 +2,7 @@ import CreateDashboard from "../../Components/CreateDashboard"
 import ReadDashboard from "../../Components/ReadDashboard"
 import UpdateDashboard from "../../Components/UpdateDashboard"
 import { useState } from "react"
-import { addUser } from "../../service/user"
+import { addUser} from "../../service/user"
 import './style_dashboard.css'
 
 

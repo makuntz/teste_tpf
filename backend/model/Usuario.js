@@ -12,7 +12,7 @@ const usuarioSchema = mongoose.Schema({
     email: {
         type: String,
         require: [true, 'Por favor digite o seu email'],
-        unique: true,
+        unique: true
     },
     curso: {
         type: String,
@@ -21,14 +21,14 @@ const usuarioSchema = mongoose.Schema({
 
 })
 
+//funcao para nao precisar colocar o bcrypt no controller;
+// usuarioSchema.pre('save', async function(next){
+//     if(!this.isModified('senha')){
+//         next()
+//     }
 
-usuarioSchema.pre('save', async function(next){
-    if(!this.isModified('senha')){
-        next()
-    }
-
-    this.senha = await bcrypt.hash(this.senha, 10)
-})
+//     this.senha = await bcrypt.hash(this.senha, 10)
+// })
 
 
 module.exports = mongoose.model('Usuario', usuarioSchema)
