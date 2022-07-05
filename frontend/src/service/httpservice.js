@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-//trabalhando com erros de promessas - funcao pega em projeto anterior
+// funcao pega em projeto anterior
 axios.interceptors.response.use(null, (error) => {
   const errosEsperados =
     error.response && error.response.status >= 400 && error.status < 500

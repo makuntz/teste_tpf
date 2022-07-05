@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import UserListItem from '../UserListItem'
 import { getUsers, deleteUser, updateUsers  } from '../../service/user'
+import UpdateDashboard from '../UpdateDashboard/index';
 
 
 function UserList(props) {
   const [users, setUsers] = useState([])
+  const [editUser, setEditUser] = useState('')
 
   async function fetchUsers() {
     let users = await getUsers()
@@ -25,7 +27,11 @@ function UserList(props) {
 
   async function handleEdit (id){
     users.filter((user) => user._id == id)
-    await updateUsers(id)
+    setEditUser(true)
+  }
+
+  const getUserEditDashboard = (id) => {
+    
   }
 
   useEffect(() => {
@@ -33,11 +39,17 @@ function UserList(props) {
   }, [])
 
   return (
-    <ul className="userlist">
-      {users.map((user) => (
-        <UserListItem  key={user._id} user={user} deleteUser={()=> handleDelete(user._id)} updateUsers={()=> handleEdit(user._id)}/>
-      ))}
-    </ul>
+    <Fragment>
+      <ul className="userlist">
+        {users.map((user) => (
+          <UserListItem  key={user._id} user={user} deleteUser={()=> handleDelete(user._id)} />
+        ))}
+      </ul>
+      <div>
+        <UpdateDashboard handleEdit={()=> handleEdit(users._id)}/>
+      </div>
+    
+    </Fragment>
   )
 }
 

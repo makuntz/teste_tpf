@@ -74,7 +74,7 @@ const DashboardPage = () => {
                 <ReadDashboard/>
             }
             {showUpdate === true && 
-                <UpdateDashboard/>
+                <UpdateDashboard />
             }
         </div>
     )
