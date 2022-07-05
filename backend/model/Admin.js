@@ -3,20 +3,14 @@ const bcrypt = require('bcrypt')
 
 
 
-const usuarioSchema = mongoose.Schema({
-    nome: {
-        type: String,
-        required: [true, 'Por favor, digite seu nome'],
-        maxLength: [30, 'O nome não pode exceder 30 caracteres']
-    },
+const adminSchema = mongoose.Schema({
     email: {
         type: String,
         require: [true, 'Por favor digite o seu email'],
-        unique: true
     },
-    curso: {
-        type: String,
-        require: [true, 'Por favor digite o curso'],
+    senha: {
+        type: Number,
+        require: [true, 'Por favor digite sua senha'],
     }
 
 })
@@ -31,4 +25,4 @@ const usuarioSchema = mongoose.Schema({
 // })
 
 
-module.exports = mongoose.model('Usuario', usuarioSchema)
+module.exports = mongoose.model('Admin', adminSchema)

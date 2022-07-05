@@ -2,7 +2,7 @@ import CreateDashboard from "../../Components/CreateDashboard"
 import ReadDashboard from "../../Components/ReadDashboard"
 import UpdateDashboard from "../../Components/UpdateDashboard"
 import { useState } from "react"
-import { addUser } from "../../service/user"
+import { addUser} from "../../service/user"
 import './style_dashboard.css'
 
 
@@ -55,14 +55,16 @@ const DashboardPage = () => {
         })
     }
 
+  
+
+   
     return(
         <div>
             <header>
                 <div className="header">
                     <button className="buttonHeader" onClick={handleHidde}>Início</button>
                     <button className="buttonHeader" onClick={handleShowCreate}>Cadastrar</button>
-                    <button className="buttonHeader" onClick={handleShowRead}>Alunos</button>
-                    <button className="buttonHeader" onClick={handleShowUpdate}>Atualizar</button>
+                    <button className="buttonHeader" onClick={handleShowRead}>Listar</button>
                 </div>
             </header>
             {showCreate === true && 

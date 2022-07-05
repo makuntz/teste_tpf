@@ -1,10 +1,11 @@
+import UserList from '../ListDashboard'
+
 const ReadDashboard = () => {
-
-    return(
-        <div>
-
-        </div>
-    )
+  return (
+    <div>
+      <UserList />
+    </div>
+  )
 }
 
 export default ReadDashboard
