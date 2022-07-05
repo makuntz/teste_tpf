@@ -8,6 +8,8 @@ Esse projeto utiliza os seguintes:
 
     .NodeJS
     .MongDB
+    .Express
+    .React
     .
     .
 
@@ -29,4 +31,11 @@ Após a instalar o NodeJS:
     4. Nessas mesmas pastas (em dois terminais), rode o comando abaixo
     npm start
 
-    Esse comando compila o projeto, iniciando o server
+    Esse comando compila o projeto, iniciando o server em http://localhost:3000.
+    - para rodar apenas o backend: localhost:4000 -
+
+## Considerações
+
+    . Acabei utilizando uma database do MongoDB Atlas que eles hosteam de graça para propósitos de aprendizagem. Por esse motivo (e por não haver dados sensíveis nesse exercício) a string de acesso a url da minha database está hardcoded no código mesmo com intuito de facilitar o acesso.
+
+    . O usuario e senha para a autenticação também estão hardcoded para facilitar (assumindo aqui que o foco seja o gerenciamento dessas etapas da API e não o valor das credenciais.)Inclui, então, um usuário "admin" que chamei de "admin" para conseguir fazer o login. A senha para logar é 1234.

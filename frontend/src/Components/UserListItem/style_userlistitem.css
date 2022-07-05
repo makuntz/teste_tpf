@@ -1,0 +1,47 @@
+
+
+.AlunoListItem{
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 200px;
+    height: 50px;
+
+}
+
+.aluno_itens{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.aluno_nome{
+    width: 10rem;
+}
+
+.aluno_email{
+    width: 10rem;
+    margin-left: 5rem;
+}
+
+.aluno_curso{
+    width: 10rem;
+    margin-left: 10rem;
+}
+
+.lixeira_icon{
+    background-color: rgb(255, 255, 255);
+    
+}
+
+.edita_icon{
+    background-color: white;
+    
+}
+
+.button_lixeira{
+    margin-left: 10rem;
+}
+
