@@ -6,7 +6,8 @@ import UpdateDashboard from '../UpdateDashboard/index';
 
 function UserList(props) {
   const [users, setUsers] = useState([])
-  const [editUser, setEditUser] = useState('')
+  const [editUserId, setEditUserId] = useState('')
+  const [editClicked, setEditClicked] = useState(false)
 
   async function fetchUsers() {
     let users = await getUsers()
@@ -25,13 +26,22 @@ function UserList(props) {
     }
   }
 
-  async function handleEdit (id){
-    users.filter((user) => user._id == id)
-    setEditUser(true)
+  const getUserEditDashboard = (id) => {
+    const user = users.find(user => user._id === editUserId)
+
+    if(editClicked){
+      return(
+        <div>
+          <UpdateDashboard nome={user.nome} email={user.email} curso={user.curso} id={user._id}/>
+        </div>
+      )
+    }
+    return <></>
   }
 
-  const getUserEditDashboard = (id) => {
-    
+  const onEditClicked = (id) => {
+    setEditClicked(!editClicked)
+    setEditUserId(id)
   }
 
   useEffect(() => {
@@ -42,11 +52,17 @@ function UserList(props) {
     <Fragment>
       <ul className="userlist">
         {users.map((user) => (
-          <UserListItem  key={user._id} user={user} deleteUser={()=> handleDelete(user._id)} />
+          <UserListItem  
+            key={user._id} 
+            user={user} 
+            deleteUser={()=> handleDelete(user._id)}
+            
+            onEditClicked={()=> onEditClicked(user._id)}
+            />
         ))}
       </ul>
       <div>
-        <UpdateDashboard handleEdit={()=> handleEdit(users._id)}/>
+        {getUserEditDashboard(editUserId)}
       </div>
     
     </Fragment>

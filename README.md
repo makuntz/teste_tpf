@@ -31,11 +31,18 @@ Após a instalar o NodeJS:
     4. Nessas mesmas pastas (em dois terminais), rode o comando abaixo
     npm start
 
-    Esse comando compila o projeto, iniciando o server em http://localhost:3000.
-    - para rodar apenas o backend: localhost:4000 -
+    Esse comando compila o projeto, iniciando o server em http://localhost:3000, para o frontend e, o mesmo comando inicia o server em http://localhost:4000, para o frontend. É necessário rodar os dois servidores para o funcionamento do projeto completo.
+
+## Testes
+
+    Para testes manuais e realização dos http requests, a autora sugere a utilização do [Postman](https://www.postman.com/).
+
+    Veja abaixo um exemplo do POST request em http://localhost:4000/adduser, feito através do Postman.
+
+    -->> ACRESCENTAR AS IMAGENS
 
 ## Considerações
 
-    . Acabei utilizando uma database do MongoDB Atlas que eles hosteam de graça para propósitos de aprendizagem. Por esse motivo (e por não haver dados sensíveis nesse exercício) a string de acesso a url da minha database está hardcoded no código mesmo com intuito de facilitar o acesso.
+    . Acabei utilizando um database do MongoDB Atlas que eles hosteam de graça para propósitos de aprendizagem. Por esse motivo (e por não haver dados sensíveis nesse exercício) a string de acesso a url da minha database está hardcoded no código mesmo com intuito de facilitar o acesso.
 
-    . O usuario e senha para a autenticação também estão hardcoded para facilitar (assumindo aqui que o foco seja o gerenciamento dessas etapas da API e não o valor das credenciais.)Inclui, então, um usuário "admin" que chamei de "admin" para conseguir fazer o login. A senha para logar é 1234.
+    . O usuario e senha para a autenticação também estão hardcoded para facilitar (assumindo aqui que o foco seja o gerenciamento dessas etapas da API e não o valor das credenciais.)Inclui, então, um usuário "admin" que tem para login o email "tpf@gmail.com" e a senha "3585".

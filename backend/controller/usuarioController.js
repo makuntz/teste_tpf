@@ -16,7 +16,7 @@ exports.editUser = async (req, res) => {
     const {id} = req.params
     const {nome, email, curso} = req.body 
 
-    const usuariodb = await Usuario.findOById(id)
+    const usuariodb = await Usuario.findById(id)
     await usuariodb.updateOne({nome, email, curso})
     
     res.send('Usuario atualizado')
@@ -35,7 +35,7 @@ exports.deleteUser = async (req, res) => {
 exports.listUser = async (req, res) => {
     
     const usuariodb = await Usuario.find()
-
+    
     res.send(usuariodb)
 }
 

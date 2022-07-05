@@ -36,9 +36,9 @@ export async function getUsers() {
     }
   }
 
-export async function updateUsers (id) {
+export async function updateUser(id, body) {
     try{
-        const {data: resposta} = await httpservice.put(apiurl + '/edituser/' + id)
+        const {data: resposta} = await httpservice.put(apiurl + '/edituser/' + id, body)
 
         return resposta
 
