@@ -15,7 +15,6 @@ app.use(usuario)
 
 
 app.get('/', (req, res, next) => {
-    res.send('funcionouuuuu')
     res.sendStatus(200);
 });
 

@@ -15,7 +15,7 @@ function UserLisItem(props) {
       <button className='button_lixeira' onClick={() => props.deleteUser(props.user._id)}  >
         <img src={deleteIcon} width="15px" className="lixeira_icon" alt="Delete aluno" />
       </button>
-      <button className='button_editar' onClick={() => props.updateUsers(props.user._id)} >
+      <button className='button_editar' onClick={() => props.onEditClicked()}>
         <img src={editarIcon} width="15px" className="edita_icon" alt="Edita aluno" />
       </button>
     </li>
