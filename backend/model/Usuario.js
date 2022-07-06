@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 const usuarioSchema = mongoose.Schema({
     nome: {
         type: String,
-        required: [true, 'Por favor, digite seu nome'],
+        required: [false, 'Por favor, digite seu nome'],
         maxLength: [30, 'O nome não pode exceder 30 caracteres']
     },
     email: {
@@ -16,19 +16,12 @@ const usuarioSchema = mongoose.Schema({
     },
     curso: {
         type: String,
-        require: [true, 'Por favor digite o curso'],
+        require: [false, 'Por favor digite o curso'],
     }
 
 })
 
-//funcao para nao precisar colocar o bcrypt no controller;
-// usuarioSchema.pre('save', async function(next){
-//     if(!this.isModified('senha')){
-//         next()
-//     }
 
-//     this.senha = await bcrypt.hash(this.senha, 10)
-// })
 
 
 module.exports = mongoose.model('Usuario', usuarioSchema)

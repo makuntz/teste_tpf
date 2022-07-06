@@ -43,12 +43,19 @@ const DashboardPage = () => {
 
     const postUser = async (event) => {
         event.preventDefault()
-        await addUser({
+        
+        const resultado =  await addUser({
             nome: user.nome,
             email: user.email,
             curso: user.curso
         })
-        setUser({nome:'', email:'', curso:''})
+        
+        if(!resultado){
+            alert('Nao foi possível cadastrar usuário')
+        } else {
+            setUser({nome:'', email:'', curso:''})
+        }
+        
     }
 
   

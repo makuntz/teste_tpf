@@ -19,6 +19,7 @@ function UserList(props) {
       let newUsers = users.filter((user) => user._id !== id)
       setUsers(newUsers)
       await deleteUser(id)
+      alert('Cadastro excluído com sucesso!')
 
     } catch (error){
       setUsers(users)
