@@ -10,8 +10,6 @@
         .MongDB
         .Express
         .React
-        .
-        .
 
     Somente é necessário ter o NodeJs pré instalado para a execução do projeto. Outras dependencias são gerenciadas pelo gerenciador de pacotes NPM.
 
@@ -49,7 +47,20 @@ Após a instalar o NodeJS:
 
             . Já o botão editar, quando clicado, abre uma nova janela, com todos os campos e seus valores previamente preenchidos, para que se possa fazer alteração dos mesmos. Para sumir essa janela, sem fazer alterações, basta clicar novamente no ícone do lápis, que ela desaparece. Clicando em 'Editar', o cadastro é alterado no banco de dados.
 
-## Rotas
+## Rotas e endpoints
+
+    Os endpoints disponíveis para frontend são os seguintes:
+
+    . /                      --> pagina inicial (pagina de login)
+    . /dashboard             --> pagina do dashboard, onde se encontra todas as outras         funcionalidaes da aplicação
+
+    Os endpoints disponíveis no backend são os seguintes:
+
+    .POST /login             --> loga o admin
+    .POST /adduser           --> adiciona aluno no banco de dados (Create)
+    .PUT /edituser/:id       --> edita o cadastro do aluno no banco de dados (Update)
+    .GET /listuser           --> lê todos os alunos cadastrados no banco de dados (Read)
+    .DELETE /deleteuser/:id  --> exclui um aluno já cadastrado no banco de dados (Delete)
 
 ## Testes
 
@@ -57,7 +68,11 @@ Após a instalar o NodeJS:
 
     Veja abaixo um exemplo do POST request em http://localhost:4000/adduser, feito através do Postman.
 
+Teste no Postman:
+
 ![postman](https://user-images.githubusercontent.com/75498529/177631778-d3a34b81-a55e-4fd8-b575-9b4f9e397e55.png)
+
+Resultado no Banco de Dados:
 
 ![mongo](https://user-images.githubusercontent.com/75498529/177631788-31820298-47a7-479b-b17d-d6fe3b9aa31d.png)
 
@@ -66,3 +81,8 @@ Após a instalar o NodeJS:
     . Acabei utilizando um database do MongoDB Atlas que eles hosteam de graça para propósitos de aprendizagem. Por esse motivo (e por não haver dados sensíveis nesse exercício) a string de acesso a url da minha database está hardcoded no código mesmo com intuito de facilitar o acesso.
 
     . O usuario e senha para a autenticação também estão hardcoded para facilitar (assumindo aqui que o foco seja o gerenciamento dessas etapas da API e não o valor das credenciais.)Inclui, então, um usuário "admin" que tem para login o email "tpf@gmail.com" e a senha "3585".
+
+## Próximos passos
+
+    1. Realizar testes automatizados
+    2. Criar suporte a container para a aplicação.
