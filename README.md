@@ -25,11 +25,11 @@ Após a instalar o NodeJS:
 
 2. Instale as dependencias do projeto na pasta backend
    Na pasta raíz, digite cd backend
-   <npm install>
+   `npm install`
 
 3. Instale as dependencias do projeto na pasta frontend
    Na pasta raíz, digite cd frontend
-   <npm install>
+   `npm install`
 
 4. Nessas mesmas pastas (em dois terminais), rode o comando abaixo
    <npm start>
