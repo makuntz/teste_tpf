@@ -1,8 +1,9 @@
 import Login from "../../Components/Login"
 
 
-const LoginPage = () => {
 
+const LoginPage = () => {
+    
     return(
         <Login/>
     )

@@ -48,13 +48,14 @@ export async function updateUser(id, body) {
 }
 
 
-  export async function loginAdmin (){
+  export async function checkUserAdmin (body){
     try {
-        const data = await httpservice.login(apiurl + '/login')
+        const userIsAdmin = await httpservice.post(apiurl + '/login', body)
 
-        return data
+        return userIsAdmin
 
     } catch (error) {
         console.log(error)
+        return false
     }
   }

@@ -9,6 +9,7 @@ exports.addUser = async (req, res) => {
         email, 
         curso
     })
+    console.log('helloww')
     res.send(usuariodb)
 }
 
@@ -43,11 +44,10 @@ exports.login = async (req, res) => {
     const {email, password} = req.body
     const user = await Admin.findOne({email:email})
 
-    if(user === null){
-        alert('usuario nao existe')
+    if(!!user && password == user.senha){
+        res.send(true)
     } else{
-        if(email && password == user.email){
-            res.redirect('')
-        }
+       console.log('Usuário nao é admin ou nao foi encontrado')
+       res.send(false)
     }
 }
