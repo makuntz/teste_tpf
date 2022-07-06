@@ -5,7 +5,7 @@ import { apiurl } from "../config";
 export async function addUser (data) {
     try{
         const { data: resposta } = await httpservice.post(`${apiurl}/adduser`, data)
-
+        console.log(resposta)
         return resposta
     } 
     catch (err){
@@ -39,7 +39,7 @@ export async function getUsers() {
 export async function updateUser(id, body) {
     try{
         const {data: resposta} = await httpservice.put(apiurl + '/edituser/' + id, body)
-
+        
         return resposta
 
     }catch (error) {

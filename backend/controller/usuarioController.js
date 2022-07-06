@@ -3,13 +3,23 @@ const Admin = require('../model/Admin')
 
 exports.addUser = async (req, res) => {
     const {nome, email, curso} = req.body
+    if(!email){
+        res.send(false)
+        return
+    }
+
+    const user = await Usuario.findOne({email:email})
+    if(!!user){
+        res.send(false)
+        return
+    }
+
 
     const usuariodb = await Usuario.create({
         nome, 
         email, 
         curso
     })
-    console.log('helloww')
     res.send(usuariodb)
 }
 

@@ -30,6 +30,7 @@ const UpdateDashboard = (props) => {
             curso: curso || props.curso
         }
         await updateUser(id, body)
+        alert('Cadastro editado com sucesso!')
     }
 
     return(
