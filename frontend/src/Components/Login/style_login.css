@@ -6,35 +6,21 @@
     
 }
 
-
 .containerLogin{
+    margin-left: 25rem;
+    margin-right: 0;
+    height: 30rem;
+    width: 30rem;
     padding: 3rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-image: url("/src/admin2.png"); */
-    /* background-size: cover; */
-    /* background-position: center;  */
 }
 
 .transparente{
-    /* border: 3px solid black; */
-    box-shadow: 5rem;
-    width: 30rem;
-    height: 30rem;
-     /* border-radius: 3rem; */
-    /* background: rgba(255, 255, 255, 0.35);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.5px);
-    -webkit-backdrop-filter: blur(11.5px);
-    border: 1px solid rgba(255, 255, 255, 1); */
-}
-
-form{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -47,6 +33,15 @@ form{
     border: 1px solid rgba(255, 255, 255, 1);
 }
 
+.formLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
 .emailLogin{
     width: 15rem;
     height: 2rem;
@@ -55,6 +50,9 @@ form{
     border: 1px solid black;
     border-radius: 0.8rem;
     background-color: rgb(238, 232, 232);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -75,6 +73,9 @@ form{
     border-radius: 0.5rem;
     font-weight: bolder;
     font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .formLogin p{

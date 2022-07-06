@@ -1,7 +1,4 @@
-import { on } from 'events'
 import './style_create.css'
-import { useForm } from "react-hook-form";
-import { useState , useEffect} from 'react';
 
 const CreateDashboard = (props) => {
     

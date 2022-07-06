@@ -9,6 +9,7 @@ exports.addUser = async (req, res) => {
         email, 
         curso
     })
+    console.log('helloww')
     res.send(usuariodb)
 }
 

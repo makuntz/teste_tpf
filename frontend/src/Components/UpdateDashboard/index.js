@@ -1,4 +1,3 @@
-import { useForm } from "react-hook-form";
 import { useState , useEffect} from 'react';
 import './style_update.css'
 import { updateUser } from "../../service/user";
@@ -21,7 +20,7 @@ const UpdateDashboard = (props) => {
     }
 
     const handleCursoChange = (e) => {
-        setCurso(e.targe.value)
+        setCurso(e.target.value)
     }
 
     const onUpdateClicked = async (id) => {

@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import UserListItem from '../UserListItem'
-import { getUsers, deleteUser, updateUsers  } from '../../service/user'
+import { getUsers, deleteUser } from '../../service/user'
 import UpdateDashboard from '../UpdateDashboard/index';
 
 
@@ -16,7 +16,7 @@ function UserList(props) {
 
   async function handleDelete (id) {
     try{
-      let newUsers = users.filter((user) => user._id != id)
+      let newUsers = users.filter((user) => user._id !== id)
       setUsers(newUsers)
       await deleteUser(id)
 

@@ -31,18 +31,13 @@ const DashboardPage = () => {
         setShowUpdate(false)
     }
 
-    const handleShowUpdate = () => {
-        setShowCreate(false)
-        setShowRead(false)
-        setShowUpdate(true)
-    }
 
     function handleChange(event) {
         const { name, value } = event.target
     
         setUser((prevState) => ({
           ...prevState,
-          [name]: value,
+          [name]: value
         }))
       }
 
@@ -53,6 +48,7 @@ const DashboardPage = () => {
             email: user.email,
             curso: user.curso
         })
+        setUser({nome:'', email:'', curso:''})
     }
 
   

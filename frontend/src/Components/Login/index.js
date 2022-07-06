@@ -27,7 +27,7 @@ const Login = () => {
 
             const userIsAdmin = await checkUserAdmin(body)
 
-            if(userIsAdmin){
+            if(userIsAdmin.data){
                 navigate('/dashboard')
             } else {
                 /* colocar um alerta */
@@ -40,15 +40,30 @@ const Login = () => {
     return(
         <div className="containerLogin">
             <div className="transparente">
-                <form className="formLogin">
-                    <input className="emailLogin" type="email" name="email" placeholder="Digite seu email" value={email} onChange={(e)=> onEmailChange(e)}/>
+                <div className="formLogin">
+                    <input
+                        className="emailLogin"
+                        type="email"
+                        name="email"
+                        placeholder="Digite seu email"
+                        value={email}
+                        onChange={(e) => onEmailChange(e)}
+                    />
 
-                    <input className="senhaLogin" type="password" name="password" placeholder="Digite sua senha" value={password} onChange={(e)=> onPasswordChange(e)}/>
+                    <input
+                        className="senhaLogin"
+                        type="password"
+                        name="password"
+                        placeholder="Digite sua senha"
+                        value={password}
+                        onChange={(e) => onPasswordChange(e)}
+                    />
 
                     <button className="logar" onClick={() => checkAut()}>Login</button>
+                    {/* <Link to='/dashboard'><button className="logar">Login</button></Link> */}
                     <p>Certifique-se de que você tenha cadastro</p>
-                </form>
-                
+                </div>
+
             </div>
         </div>
     )
