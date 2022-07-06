@@ -8,15 +8,13 @@ describe('TESTE', function() {
 
 
     it('testes', async function() {
-        // const options = {
-        //     method: 'GET',
-        //     url: `http://localhost:4000/listuser`
-        // }
+        const options = {
+            method: 'GET',
+            url: `http://localhost:4000/listuser`
+        }
         
         
-        // const users = await axios.request(options)
-
-        // console.log(users)
+        
 
         
     });

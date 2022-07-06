@@ -26,7 +26,7 @@ const UpdateDashboard = (props) => {
 
     const onUpdateClicked = async (id) => {
         const body = {
-            nome: nome,
+            nome: nome || props.nome,
             email: email || props.email,
             curso: curso || props.curso
         }
