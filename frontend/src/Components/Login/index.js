@@ -30,7 +30,7 @@ const Login = () => {
             if(userIsAdmin.data){
                 navigate('/dashboard')
             } else {
-                /* colocar um alerta */
+                alert('Usuário não cadastrado!')
                 console.log('Usuario nao é admin')
                 return
             }

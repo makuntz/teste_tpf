@@ -57,8 +57,9 @@ Após a instalar o NodeJS:
 
     Veja abaixo um exemplo do POST request em http://localhost:4000/adduser, feito através do Postman.
 
-    ![Image](./postman.png)
-    ![Image](./mongo.png)
+    ![postman](https://user-images.githubusercontent.com/75498529/177631778-d3a34b81-a55e-4fd8-b575-9b4f9e397e55.png)
+
+    ![mongo](https://user-images.githubusercontent.com/75498529/177631788-31820298-47a7-479b-b17d-d6fe3b9aa31d.png)
 
 ## Considerações
 
